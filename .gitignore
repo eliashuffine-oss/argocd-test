@@ -1,0 +1,22 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Ignore Docker Image Archives
+*.tar
+
+# Ignore Executables
+*.exe
+
+# Ignore Terraform State and Plugins
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.lock.hcl
