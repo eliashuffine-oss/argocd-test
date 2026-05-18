@@ -32,37 +32,3 @@ resource "kind_cluster" "my_practice_cluster" {
     }
   }
 }
-
-/*
-provider "kubernetes" {
-  config_path    = "~/.kube/config"
-  config_context = "kind-terraform-learning-cluster"
-}
-
-
-#resource "kubernetes_manifest" "web_service" {
-  #manifest   = yamldecode(file("${path.module}/web-service.yaml"))
-  #depends_on = [kind_cluster.my_practice_cluster]
-#}
-
-#resource "kubernetes_manifest" "web_deployment" {
-  #manifest   = yamldecode(file("${path.module}/web-deployment.yaml"))
-  #depends_on = [kind_cluster.my_practice_cluster]
-#}
-
-#resource "kubernetes_manifest" "db_service" {
-  #manifest   = yamldecode(file("${path.module}/db-service.yaml"))
-  #depends_on = [kind_cluster.my_practice_cluster]
-#}
-
-#resource "kubernetes_manifest" "db_deployment" {
-  #manifest   = yamldecode(file("${path.module}/db-deployment.yaml"))
-  #depends_on = [kind_cluster.my_practice_cluster]
-#}
-
-#resource "kubernetes_manifest" "db_configmap" {
-  #manifest   = yamldecode(file("${path.module}/db-cm0-configmap.yaml"))
-  #depends_on = [kind_cluster.my_practice_cluster]
-#}
-
-*/
