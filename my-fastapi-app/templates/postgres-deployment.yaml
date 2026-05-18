@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:15
+          env:
+            - name: POSTGRES_PASSWORD
+              value: "mysecretpassword" # We will secure this later!
+            - name: POSTGRES_USER
+              value: "postgres"
+            - name: POSTGRES_DB
+              value: "mydb"
+          ports:
+            - containerPort: 5432
+          # This is where the magic injection happens!
+          volumeMounts:
+            - name: init-script-volume
+              mountPath: /docker-entrypoint-initdb.d/
+      volumes:
+        - name: init-script-volume
+          configMap:
+            name: postgres-init-script
